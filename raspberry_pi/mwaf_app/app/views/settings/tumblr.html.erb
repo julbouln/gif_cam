@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>GifCam - Tumblr setup</title>
+	<link rel="stylesheet" type="text/css" href="/assets/gif_cam.css"/>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+</head>
+<body>
+<a href="/">Home</a>
+<hr/>
+<h2>Tumblr setup</h2>
+<form action="/settings/save_tumblr" method="POST">
+	<label>Blog</label><input type="text" name="blog" value="<%= @blog %>"/><br/>
+	<label>API settings</label><textarea name="api"><%= @api %></textarea>
+	<input type="submit" value="Save"/>
+</form>
+<ul>
+</ul>
+</body>
+</html>

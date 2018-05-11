@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>GifCam - Show videos</title>
+	<link rel="stylesheet" type="text/css" href="/assets/gif_cam.css"/>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+</head>
+<body>
+<a href="/">Home</a>
+<hr/>
+<h2>Show videos</h2>
+	<% @vids.each do |vid| %>
+	<div class="vid">
+		<div>
+		<video width="320" height="240" controls loop>
+	  <source src="/vids/<%= vid[:filename] %>" type="video/mp4">
+	  </video>
+	</div>
+	  <br/>
+	  <div><%= vid[:date][0] %>-<%= vid[:date][1] %>-<%= vid[:date][2] %> <%= vid[:date][3] %>:<%= vid[:date][4] %>:<%= vid[:date][5] %> | <a href="/settings/send_tumblr?video_filename=<%= vid[:filename] %>">Send to tumblr</a> | <a href="/settings/delete_video?video_filename=<%= vid[:filename] %>">Delete</a></div>
+
+	</div>
+	<% end %>
+</body>
+</html>

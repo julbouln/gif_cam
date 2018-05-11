@@ -1,0 +1,4 @@
+- register an account on tumblr
+- go to https://www.tumblr.com/oauth/apps
+- "Register an application", fill required fields, you can set https://github.com/julbouln/gif_cam for official website and callback URL
+- when created, go to "Explore API" to see credentials

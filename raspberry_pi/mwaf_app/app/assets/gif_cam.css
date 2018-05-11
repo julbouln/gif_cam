@@ -1,0 +1,16 @@
+body {
+	color:#ddd;
+	background-color:black;
+	font-size:large;
+}
+
+a {
+	color:white;
+	text-decoration:underline;
+	font-size:x-large;
+}
+
+.vid {
+	border: 2px solid white;
+	padding:8px;
+}

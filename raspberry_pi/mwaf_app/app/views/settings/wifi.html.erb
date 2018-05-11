@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>GifCam - Wifi setup</title>
+	<link rel="stylesheet" type="text/css" href="/assets/gif_cam.css"/>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+</head>
+<body>
+<a href="/">Home</a>
+<hr/>
+<h2>Wifi setup</h2>
+<form action="/settings/save_wifi">
+	<label>Network</label><select name="essid"><br/>
+	<% @aps.each do |ap| %>
+		<option value="<%= ap.essid %>--<%= ap.protocol %>" <%= ap.essid == @essid ? "selected" : "" %>><%= ap.essid %> - <%= ap.protocol %> (<%= ap.signal %>)</option>
+	<% end %>
+	</select><br/>
+	<label>Password</label><input name="password" type="text"/><br/>
+	<input type="submit" value="Save"/>
+</form>
+<ul>
+</ul>
+</body>
+</html>

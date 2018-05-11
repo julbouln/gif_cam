@@ -1,0 +1,39 @@
+## raspi : boot
+apt-get install hostapd dnsmasq
+
+## copy etc.tgz
+/etc/default/hostapd
+ DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+/etc/sysctl.conf
+uncomment 
+net.ipv4.ip_forward=1
+
+systemctl disable hostapd
+systemctl disable dnsmasq
+systemctl set-default multi-user.target
+
+## dependences h2o
+apt-get install cpufrequtils joe git gcc cmake libssl-dev libsqlite3-dev ruby libuv1-dev bison
+
+### battery monitor
+https://jeelabs.org/2013/05/17/zero-powe-battery-measurement/
+https://www.allaboutcircuits.com/tools/voltage-divider-calculator/
+
+### rgb led
+common anode
+https://boutique.semageek.com/fr/62-led-rgb-transparente-5mm.html?search_query=led+rgb&results=219
+
+http://hertaville.com/stm32f0-gpio-tutorial-part-2.html
+https://github.com/adafruit/dash-examples/blob/master/examples/pwm/pwm.c
+use PB1 TIM14 CH1, PA6 TIM3 CH1, PA7 TIM3 CH2 ?
+
+### shutdown
+https://github.com/rricharz/pi-shutdown
+
+### stm32
+PA0: wake up pin
+PA1 + PA2: ADC + GPIO battery monitoring
+PB1, PA6, PA7: led RGB
+P14: power enable
+P13: shutdown request 
