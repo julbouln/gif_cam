@@ -23,9 +23,7 @@ class SettingsController < Mwaf::Controller
 
   def delete_video
     alive = IO.popen("gifcam-control alive");
-#    rm = IO.popen("rm -f vids/#{params[:video_filename]}")
     File.delete("vids/#{params[:video_filename]}")
-
     redirect_to "/settings/videos"
   end
 
@@ -40,14 +38,14 @@ class SettingsController < Mwaf::Controller
 
   def save_wifi
     alive = IO.popen("gifcam-control alive");
-#  	puts params
-  	essid, protocol = params[:essid].split("--")
+
+  	essid, protocol = URI.decode(params[:essid]).gsub("+"," ").split("--")
   	wifi_essid = Settings.where(:key=>"wifi_essid").first_or_create
   	wifi_essid.value = essid
   	wifi_essid.save
 
   	wifi_password = Settings.where(:key=>"wifi_password").first_or_create
-  	wifi_password.value = params[:password]
+  	wifi_password.value = URI.decode(params[:password]).gsub("+"," ").split("--")
   	wifi_password.save
 
   	wifi_proto = Settings.where(:key=>"wifi_protocol").first_or_create
